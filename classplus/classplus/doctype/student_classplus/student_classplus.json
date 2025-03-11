@@ -1,0 +1,205 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:student_name",
+ "creation": "2025-03-11 11:44:11.606030",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "is_active",
+  "student_details_section",
+  "user_id",
+  "column_break_tswm",
+  "student_name",
+  "column_break_tfap",
+  "student_mobile",
+  "course_details_section",
+  "course_id",
+  "enrollment_date",
+  "column_break_jniq",
+  "course_name",
+  "expiry_date",
+  "column_break_keiq",
+  "course_amount",
+  "installment_count_section",
+  "total_number_of_installments",
+  "column_break_vgtb",
+  "paid_installments",
+  "column_break_whhi",
+  "unpaid_installments",
+  "installment_detail_section",
+  "total_installments_amount",
+  "last_paid_date",
+  "column_break_kjnk",
+  "total_installment_amount_paid",
+  "next_due_date",
+  "column_break_yxvg",
+  "installment_amount_remaining"
+ ],
+ "fields": [
+  {
+   "fieldname": "last_paid_date",
+   "fieldtype": "Date",
+   "label": "Last Paid Date"
+  },
+  {
+   "fieldname": "student_name",
+   "fieldtype": "Data",
+   "label": "Student Name",
+   "unique": 1
+  },
+  {
+   "fieldname": "user_id",
+   "fieldtype": "Int",
+   "label": "User ID"
+  },
+  {
+   "fieldname": "expiry_date",
+   "fieldtype": "Date",
+   "label": "Expiry Date"
+  },
+  {
+   "fieldname": "enrollment_date",
+   "fieldtype": "Date",
+   "label": "Enrollment Date"
+  },
+  {
+   "fieldname": "next_due_date",
+   "fieldtype": "Date",
+   "label": "Next Due Date"
+  },
+  {
+   "fieldname": "installment_amount_remaining",
+   "fieldtype": "Currency",
+   "label": "Installment Amount Remaining"
+  },
+  {
+   "fieldname": "student_mobile",
+   "fieldtype": "Data",
+   "label": "Student Mobile"
+  },
+  {
+   "fieldname": "paid_installments",
+   "fieldtype": "Int",
+   "label": "Paid Installments"
+  },
+  {
+   "fieldname": "course_id",
+   "fieldtype": "Int",
+   "label": "Course ID"
+  },
+  {
+   "fieldname": "course_name",
+   "fieldtype": "Data",
+   "label": "Course Name"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "label": "Is Active"
+  },
+  {
+   "fieldname": "course_amount",
+   "fieldtype": "Currency",
+   "label": "Course Amount"
+  },
+  {
+   "fieldname": "total_installment_amount_paid",
+   "fieldtype": "Currency",
+   "label": "Total Installment Amount Paid"
+  },
+  {
+   "fieldname": "unpaid_installments",
+   "fieldtype": "Int",
+   "label": "Unpaid Installments"
+  },
+  {
+   "fieldname": "student_details_section",
+   "fieldtype": "Section Break",
+   "label": "Student Details"
+  },
+  {
+   "fieldname": "column_break_tswm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_tfap",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "installment_count_section",
+   "fieldtype": "Section Break",
+   "label": "Installment Count"
+  },
+  {
+   "fieldname": "total_number_of_installments",
+   "fieldtype": "Int",
+   "label": "Total Number of Installments"
+  },
+  {
+   "fieldname": "column_break_vgtb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_whhi",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_kjnk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_yxvg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "course_details_section",
+   "fieldtype": "Section Break",
+   "label": "Course Details"
+  },
+  {
+   "fieldname": "column_break_jniq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_keiq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "installment_detail_section",
+   "fieldtype": "Section Break",
+   "label": "Installment Detail"
+  },
+  {
+   "fieldname": "total_installments_amount",
+   "fieldtype": "Currency",
+   "label": "Total Installments Amount"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-03-11 14:54:46.852717",
+ "modified_by": "Administrator",
+ "module": "Classplus",
+ "name": "Student Classplus",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
