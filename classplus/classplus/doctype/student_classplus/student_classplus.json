@@ -10,9 +10,9 @@
   "student_details_section",
   "user_id",
   "column_break_tswm",
-  "student_name",
-  "column_break_tfap",
   "student_mobile",
+  "column_break_tfap",
+  "student_name",
   "course_details_section",
   "course_id",
   "enrollment_date",
@@ -61,6 +61,7 @@
   {
    "fieldname": "enrollment_date",
    "fieldtype": "Date",
+   "in_standard_filter": 1,
    "label": "Enrollment Date"
   },
   {
@@ -76,6 +77,8 @@
   {
    "fieldname": "student_mobile",
    "fieldtype": "Data",
+   "in_filter": 1,
+   "in_standard_filter": 1,
    "label": "Student Mobile"
   },
   {
@@ -91,6 +94,7 @@
   {
    "fieldname": "course_name",
    "fieldtype": "Data",
+   "in_standard_filter": 1,
    "label": "Course Name"
   },
   {
@@ -112,6 +116,7 @@
   {
    "fieldname": "unpaid_installments",
    "fieldtype": "Int",
+   "in_list_view": 1,
    "label": "Unpaid Installments"
   },
   {
@@ -135,7 +140,8 @@
   {
    "fieldname": "total_number_of_installments",
    "fieldtype": "Int",
-   "label": "Total Number of Installments"
+   "in_list_view": 1,
+   "label": "Total Installments"
   },
   {
    "fieldname": "column_break_vgtb",
@@ -179,7 +185,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-03-11 14:54:46.852717",
+ "modified": "2025-03-18 18:37:45.582955",
  "modified_by": "Administrator",
  "module": "Classplus",
  "name": "Student Classplus",
