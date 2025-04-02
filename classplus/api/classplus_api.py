@@ -106,26 +106,58 @@ def handle_pricing_data():
     try:
         data = frappe.request.json
         frappe.log_error("Data:", data)
+        student_name = data.get("student_name")
         student_mobile = data.get("student_mobile")
         course_name = data.get("course_name")
         course_price = data.get("course_price")
+        current_time = frappe.utils.now()
 
         if not student_mobile or not course_name or not course_price:
             return {"status": "error", "message": "Missing required fields"}
 
         existing_lead = frappe.get_list("Lead", filters={"mobile_no": student_mobile}, limit=1)
 
+        # If lead exists, update course price
         if existing_lead:
             lead = frappe.get_doc("Lead", existing_lead[0].name)
-
+            
+            course_found = False
             for course in lead.get("course"):
                 if course.course_name == course_name:
                     course.price = course_price
-                    lead.save(ignore_permissions=True)
-                    frappe.db.commit()
-                    return {"status": "success", "message": "Course price updated"}
-
-        return {"status": "error", "message": "Lead or course not found"}
+                    course_found = True
+                    break
+            
+            # If course not found in existing lead, add it
+            if not course_found:
+                lead.append("course", {
+                    "course_name": course_name,
+                    "price": course_price,
+                    "time": current_time
+                })
+                
+            lead.save(ignore_permissions=True)
+            frappe.db.commit()
+            return {"status": "success", "message": "Course price updated"}
+        
+        # If lead doesn't exist, create a new one
+        else:
+            new_lead = frappe.get_doc({
+                "doctype": "Lead",
+                "first_name": student_name,
+                "mobile_no": student_mobile,
+                "source": "Classplus",
+                "event_": "Bought Course",
+                "course": [{
+                    "course_name": course_name,
+                    "price": course_price,
+                    "time": current_time
+                }]
+            })
+            
+            new_lead.insert(ignore_permissions=True)
+            frappe.db.commit()
+            return {"status": "success", "message": "New lead created with course"}
 
     except Exception as e:
         frappe.logger().error(f"Error processing webhook: {str(e)}")
