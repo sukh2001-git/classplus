@@ -105,7 +105,7 @@ def fetch_classplus_data():
 def handle_pricing_data():
     try:
         data = frappe.request.json
-        frappe.log_error("Data:", data)
+
         student_name = data.get("student_name")
         student_mobile = data.get("student_mobile")
         course_name = data.get("course_name")
