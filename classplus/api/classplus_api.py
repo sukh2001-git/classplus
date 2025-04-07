@@ -121,20 +121,11 @@ def handle_pricing_data():
         if existing_lead:
             lead = frappe.get_doc("Lead", existing_lead[0].name)
             
-            course_found = False
-            for course in lead.get("course"):
-                if course.course_name == course_name:
-                    course.price = course_price
-                    course_found = True
-                    break
-            
-            # If course not found in existing lead, add it
-            if not course_found:
-                lead.append("course", {
-                    "course_name": course_name,
-                    "price": course_price,
-                    "time": current_time
-                })
+            lead.append("course", {
+                "course_name": course_name,
+                "price": course_price,
+                "time": current_time
+            })
                 
             lead.save(ignore_permissions=True)
             frappe.db.commit()
