@@ -120,16 +120,27 @@ def handle_pricing_data():
         # If lead exists, update course price
         if existing_lead:
             lead = frappe.get_doc("Lead", existing_lead[0].name)
+
+            course_exists = False
+            for course in lead.get("course", []):
+                if course.course_name == course_name:
+                    # Update existing course entry
+                    course.price = course_price
+                    course.time = current_time
+                    course_exists = True
+                    break
             
-            lead.append("course", {
-                "course_name": course_name,
-                "price": course_price,
-                "time": current_time
-            })
+            if not course_exists:
+                # Append new course entry
+                lead.append("course", {
+                    "course_name": course_name,
+                    "price": course_price,
+                    "time": current_time
+                })
                 
             lead.save(ignore_permissions=True)
             frappe.db.commit()
-            return {"status": "success", "message": "Course price updated"}
+            return {"status": "success", "message": "Course updated" if course_exists else "New course added to existing student"}
         
         # If lead doesn't exist, create a new one
         else:
