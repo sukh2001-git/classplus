@@ -137,6 +137,8 @@ def handle_pricing_data():
                     "price": course_price,
                     "time": current_time
                 })
+
+            lead.event_ = "Bought Course"
                 
             lead.save(ignore_permissions=True)
             frappe.db.commit()
