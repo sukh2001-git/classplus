@@ -126,7 +126,6 @@ def handle_pricing_data():
                 if course.course_name == course_name:
                     # Update existing course entry
                     course.price = course_price
-                    course.time = current_time
                     course_exists = True
                     break
             
